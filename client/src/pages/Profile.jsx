@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { app } from "../firebase";
 import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserFailure, signOutUserStart, signOutUserSuccess } from '../redux/user/userSlice';
-
+import { Link } from "react-router-dom";
 
 export default function Profile() {
     const fileRef = useRef(null);
@@ -146,6 +146,11 @@ export default function Profile() {
                 >
                     {loading ? "Loading..." : "Update"}
                 </button>
+                <Link
+                    className="bg-green-700 text-white uppercase p-3 rounded-lg text-center hover:opacity-95"
+                    to={"/create-listing"}>
+                    Listings
+                </Link>
 
                 <div className='flex justify-between mt-5'>
                     <span
